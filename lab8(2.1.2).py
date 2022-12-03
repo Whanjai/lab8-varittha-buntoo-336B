@@ -1,28 +1,28 @@
-def merge_sort(array):
-    if len(array)>1:
-        left_array = array[:len(array)//2]
-        right_array= array[len(array)//2:]
-    merge_sort(left_array)
-    merge_sort(right_array)
+def merge(arr,low,mid,high):
+    temp = arr[low:mid+1]
     i = 0
-    j = 0
-    k = 0
-    while i <len(left_array) and j < len(right_array):
-        if left_array[i] < right_array[j]: 
-            array[k] = left_array[i]
+    j = mid + 1
+    k = low
+    while (i<len(tem)and j <=high):
+        if (temp[i] <= arr[j]):
+            arr[k] = temp[i]
             i += 1
+            k += 1
         else:
-            arr[k] = right_array[j]
-            j += 1
-        k += 1
-    while i < len(left_array):
-        array[k] = left_array[i]
+            arr[k] = arr[j]
+            j += 1 
+            k += 1
+    while (i<lem(temp)):
+        arr[k] = temp[i]
         i += 1
         k += 1
-    while j < len(right_array):
-        array[k] = right_array[j]
-        i += 1
-        k += 1
-array_a = [29,10,14,37,14,20,7,16,12]
-merge_sort(array_a)
-print(array_a)
+def sort(arr,low,high):
+        if (high-low<1):
+            return
+        mid = low +(high-low)//2
+        sort(arr,low,mid)
+        sort(arr,mid+1,high)
+        merge(arr,low,mid,high)
+        return arr
+    Array =[29,10,14,37,14,20,7,16,12]
+    print(sort(Array,0,len(Array)-1))
